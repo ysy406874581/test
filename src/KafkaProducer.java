@@ -1,0 +1,44 @@
+import java.io.UnsupportedEncodingException;
+import java.util.Properties;
+
+import kafka.javaapi.producer.Producer;
+import kafka.producer.KeyedMessage;
+import kafka.producer.ProducerConfig;
+import kafka.serializer.StringEncoder;
+
+
+public class KafkaProducer extends Thread {
+	private String topic;
+	public KafkaProducer(String topic){
+		this.topic = topic;	
+	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
+	public void run() {
+		Producer producer = creadProducer();
+		try {
+			for(int i = 0;i <=10;i++){
+                KeyedMessage msg =  new KeyedMessage(topic,new String(("杨胜勇测试："+i).getBytes(),"UTF-8"));
+				producer.send(msg);				
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+    private Producer creadProducer(){
+		Properties props = new Properties();
+		props.setProperty("zookeeper.connect", "192.168.75.128:2181");
+		props.setProperty("serializer.class",StringEncoder.class.getName());
+		//这个地方要改对应的kakfa 中config下面的service文件下的  advertised.host.name=192.168.75.128
+		props.setProperty("metadata.broker.list","192.168.75.128:9092");
+		
+		return new Producer( new ProducerConfig(props));
+	}
+	
+		
+	public static void main(String[] args) throws InterruptedException {
+		new KafkaProducer("yangshengyong").start();;
+	}
+}
