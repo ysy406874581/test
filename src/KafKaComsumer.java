@@ -19,6 +19,9 @@ public class KafKaComsumer extends Thread {
 
     @Override
     public void run() {
+        
+        
+        
         ConsumerConnector consumer = createConsumer();
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();// 指定topic名称
         topicCountMap.put(topic, 1);
