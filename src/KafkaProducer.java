@@ -17,8 +17,11 @@ public class KafkaProducer extends Thread {
 	public void run() {
 		Producer producer = creadProducer();
 		try {
+		    
+		    
+		    
 			for(int i = 0;i <=10;i++){
-                KeyedMessage msg =  new KeyedMessage(topic,new String(("杨胜勇测试："+i).getBytes(),"UTF-8"));
+                KeyedMessage msg =  new KeyedMessage(topic,new String(("杨  胜  勇测  试："+i).getBytes(),"UTF-8"));
 				producer.send(msg);				
 			}
 		} catch (UnsupportedEncodingException e) {
