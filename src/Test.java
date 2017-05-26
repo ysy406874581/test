@@ -10,6 +10,10 @@ public class Test {
         
         System.out.println("ysy");
 
+
         System.out.println("ysy-00001");
+
+		System.out.println("1");
+
     }
 }
