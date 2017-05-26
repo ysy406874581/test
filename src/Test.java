@@ -7,6 +7,8 @@ public class Test {
         System.out.println("212121212121");
 
         System.out.println("ysy");
+        
+        System.out.println("ysy");
 
     }
 }
