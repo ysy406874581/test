@@ -14,9 +14,9 @@ public class Test {
         System.out.println("ysy-00001");
 
 		System.out.println("1");
-	    System.out.println("2");
+	    System.out.println("433443221323");
 
-		System.out.println("33");
+		System.out.println("312123433");
 
     }
 }
