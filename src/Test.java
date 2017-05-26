@@ -14,6 +14,7 @@ public class Test {
         System.out.println("ysy-00001");
 
 		System.out.println("1");
+	    System.out.println("2");
 
     }
 }
